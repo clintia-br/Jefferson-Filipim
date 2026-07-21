@@ -1,0 +1,131 @@
+@import '../styles/tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Reserve the scrollbar gutter permanently. Overlays lock the page by setting
+     `overflow: hidden` here, and without a stable gutter that removal would
+     shift the whole layout sideways every time a modal opens. */
+  scrollbar-gutter: stable;
+  /* Safety net against horizontal scroll from decorative overflow (hero glows,
+     rotated slabs). `clip` — not `hidden` — because `hidden` on the root would
+     make it the scroll container and break the sticky header + scroll-locking. */
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--text-heading);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 0.4em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0 0 1em;
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color var(--dur) var(--ease);
+}
+
+a:hover {
+  color: var(--text-link-hover);
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--mint);
+  color: var(--gray-900);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+  border-radius: var(--radius-sm);
+}
+
+/* Elegant identity mark — Cinzel caps with wide tracking */
+.jf-wordmark {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-caps);
+  color: var(--brand-identity);
+  text-transform: uppercase;
+}
+
+/* Eyebrow / kicker label above headings */
+.jf-eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+/* Shared section shell */
+.jf-container {
+  max-width: var(--container);
+  margin-inline: auto;
+}
+
+/* ---------------------------------------------------------------------------
+   Animation base state.
+   Elements the GSAP layer animates start hidden, so nothing flashes at its
+   final position before the timeline attaches. `.jf-anim-ready` is set on
+   <html> by the motion provider once GSAP has taken over — until then (and
+   forever, if JS fails) everything renders visible. See lib/motion.ts.
+--------------------------------------------------------------------------- */
+.jf-anim-ready [data-anim] {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .jf-anim-ready [data-anim] {
+    visibility: visible;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

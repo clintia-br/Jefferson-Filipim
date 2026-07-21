@@ -1,0 +1,69 @@
+.section {
+  background: var(--teal-500);
+  padding: var(--section-y) var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Slow-drifting light behind the closing pitch. Tied to scroll, not a loop, so
+   it never animates while the visitor is reading. */
+.wash {
+  position: absolute;
+  top: -30%;
+  left: 20%;
+  width: 60vw;
+  max-width: 780px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(171, 226, 206, 0.4) 0%, rgba(171, 226, 206, 0) 70%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.title {
+  margin: 0;
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: var(--text-xl);
+  line-height: 1.45;
+}
+
+.footer {
+  background: var(--teal-500);
+  padding: 1.75rem var(--gutter);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footerText {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 560px) {
+  .subtitle {
+    font-size: var(--text-lg);
+  }
+}

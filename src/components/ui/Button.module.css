@@ -1,0 +1,158 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  text-align: center;
+  /* `normal`, not `nowrap`: long CTA labels ("Agendar uma avaliação
+     domiciliar") must wrap on narrow screens instead of forcing the button —
+     and its grid track — wider than the viewport. Short labels never wrap. */
+  white-space: normal;
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+  transition-duration: var(--dur-fast);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* A light sweeps across the face on hover. Single pass, no loop — it reads as
+   the surface catching the light, which is why it stays subtle enough for a
+   healthcare brand. */
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 80%
+  );
+  transform: translateX(-100%);
+  transition: transform 620ms var(--ease-out);
+}
+
+.button:hover:not(:disabled)::after {
+  transform: translateX(100%);
+}
+
+.pill {
+  border-radius: var(--radius-pill);
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+/* ---- sizes ---- */
+.sm {
+  padding: 0.5rem 1rem;
+  font-size: var(--text-sm);
+}
+
+.md {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--text-base);
+}
+
+.lg {
+  padding: 1.05rem 2.25rem;
+  font-size: var(--text-lg);
+}
+
+/* ---- variants ---- */
+.primary {
+  background: var(--blue-500);
+  color: var(--white);
+  box-shadow: var(--shadow-blue);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--blue-400);
+  box-shadow: 0 18px 34px rgba(15, 115, 229, 0.36);
+}
+
+.dark {
+  background: var(--blue-700);
+  color: var(--white);
+}
+
+.dark:hover:not(:disabled) {
+  background: #10496f;
+  box-shadow: 0 14px 30px rgba(12, 60, 96, 0.34);
+}
+
+.teal {
+  background: var(--teal-500);
+  color: var(--white);
+}
+
+.teal:hover:not(:disabled) {
+  background: var(--teal-700);
+}
+
+.outline {
+  background: transparent;
+  color: var(--blue-600);
+  border: 1.5px solid var(--blue-500);
+}
+
+.outline:hover:not(:disabled) {
+  background: rgba(15, 115, 229, 0.06);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--blue-600);
+}
+
+.ghost:hover:not(:disabled) {
+  background: rgba(15, 115, 229, 0.08);
+}
+
+/* The trailing arrow nudges forward with the button's own lift. */
+.icon {
+  display: inline-flex;
+  transition: transform var(--dur) var(--ease);
+}
+
+.button:hover:not(:disabled) .iconRight {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button::after,
+  .icon {
+    transition: none;
+  }
+
+  .button:hover:not(:disabled) {
+    transform: none;
+  }
+}

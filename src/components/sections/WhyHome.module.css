@@ -1,0 +1,35 @@
+.section {
+  background: var(--surface-cool);
+  padding: var(--section-y) var(--gutter);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  margin: 0.5rem 0 1.25rem;
+  font-size: var(--text-3xl);
+  color: var(--text-heading);
+}
+
+.body {
+  margin: 0;
+  font-size: var(--text-lg);
+  color: var(--text-body);
+  line-height: var(--leading-relaxed);
+}
+
+/* Hairline rule that draws itself under the copy — a quiet full stop for the
+   section rather than another animated element competing for attention. */
+.rule {
+  width: 96px;
+  height: 3px;
+  margin: var(--space-6) auto 0;
+  border-radius: 3px;
+  background: var(--grad-brand);
+  transform-origin: 50% 50%;
+}

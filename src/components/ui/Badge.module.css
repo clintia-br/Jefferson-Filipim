@@ -1,0 +1,73 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  border: 1px solid transparent;
+}
+
+/* blue */
+.blue.solid {
+  background: var(--blue-500);
+  color: #fff;
+}
+.blue.soft {
+  background: #e4eefc;
+  color: var(--blue-600);
+}
+.blue.outline {
+  background: transparent;
+  color: var(--blue-500);
+  border: 1.5px solid var(--blue-500);
+}
+
+/* teal */
+.teal.solid {
+  background: var(--teal-500);
+  color: #fff;
+}
+.teal.soft {
+  background: #dcefed;
+  color: var(--teal-700);
+}
+.teal.outline {
+  background: transparent;
+  color: var(--teal-500);
+  border: 1.5px solid var(--teal-500);
+}
+
+/* neutral */
+.neutral.solid {
+  background: var(--gray-900);
+  color: #fff;
+}
+.neutral.soft {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+.neutral.outline {
+  background: transparent;
+  color: var(--gray-900);
+  border: 1.5px solid var(--gray-900);
+}
+
+/* success */
+.success.solid {
+  background: var(--success);
+  color: #fff;
+}
+.success.soft {
+  background: var(--success-bg);
+  color: var(--success);
+}
+.success.outline {
+  background: transparent;
+  color: var(--success);
+  border: 1.5px solid var(--success);
+}

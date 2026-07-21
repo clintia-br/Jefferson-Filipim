@@ -1,0 +1,205 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Reading-progress hairline. Scaled by GSAP from the document scroll, so it
+   tracks the real position rather than a stepped estimate. */
+.progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--teal-500), var(--blue-500));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  will-change: transform;
+}
+
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0.75rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  transition: transform var(--dur) var(--ease);
+}
+
+.logo:hover {
+  transform: scale(1.03);
+}
+
+.logo img {
+  height: 44px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.navLink {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--text-heading);
+  letter-spacing: 0.01em;
+  padding: 0.25rem 0;
+}
+
+/* Underline grows from the left on hover and stays while the section is active. */
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--brand-primary);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.navLink:hover::after,
+.navLink[data-active='true']::after {
+  transform: scaleX(1);
+}
+
+.navLink:hover,
+.navLink[data-active='true'] {
+  color: var(--brand-primary);
+}
+
+.desktopCta {
+  display: inline-flex;
+}
+
+/* ---- mobile ---- */
+.burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--text-heading);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+
+.burger:hover {
+  background: var(--gray-50);
+}
+
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+}
+
+.drawerOpen {
+  display: block;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 40, 0.5);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  opacity: 0;
+}
+
+.panel {
+  position: absolute;
+  /* Anchor top+bottom rather than `height: 100%`: the drawer is a fixed
+     containing block, and a percentage height against it resolves to the
+     content height in some engines, collapsing the panel. top/bottom always
+     stretch it to the full viewport. */
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: min(320px, 86vw);
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+  padding: 1.25rem var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  transform: translateX(100%);
+}
+
+.panelHead {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--gray-100);
+  color: var(--gray-600);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.drawerLink {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  color: var(--text-heading);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.drawerCta {
+  margin-top: auto;
+  padding-top: var(--space-5);
+}
+
+@media (max-width: 900px) {
+  .nav,
+  .desktopCta {
+    display: none;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+}

@@ -1,0 +1,100 @@
+.section {
+  background: var(--surface-page);
+  padding: var(--section-y) var(--gutter);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--space-10);
+}
+
+.title {
+  margin: 0.5rem 0 0.75rem;
+  font-size: var(--text-3xl);
+  color: var(--text-heading);
+}
+
+.body {
+  margin: 0;
+  color: var(--text-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.goal {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface-cool);
+  border-radius: var(--radius-xl);
+  padding: 1.25rem 1.5rem;
+  min-height: 96px;
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+
+.goal:hover {
+  transform: translateY(-3px);
+  background: #cfd9dc;
+  box-shadow: var(--shadow-md);
+}
+
+.goalIcon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.goal:hover .goalIcon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.goalText {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-heading);
+  font-size: var(--text-base);
+  line-height: 1.3;
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .goal,
+  .goalIcon {
+    transition: none;
+  }
+
+  .goal:hover {
+    transform: none;
+  }
+
+  .goal:hover .goalIcon {
+    transform: none;
+  }
+}

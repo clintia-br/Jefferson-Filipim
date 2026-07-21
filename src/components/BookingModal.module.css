@@ -1,0 +1,97 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(12, 26, 40, 0.55);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  opacity: 0;
+}
+
+.dialog {
+  background: #fff;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  width: min(520px, 100%);
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  padding: var(--space-8);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  border: none;
+  background: var(--gray-100);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--gray-600);
+  transition:
+    background var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.close:hover {
+  background: var(--gray-200);
+  transform: rotate(90deg);
+}
+
+.title {
+  margin: 0.35rem 0 0.35rem;
+  font-size: var(--text-2xl);
+  color: var(--text-heading);
+}
+
+.lede {
+  margin: 0 0 1.5rem;
+  color: var(--text-body);
+  font-size: var(--text-sm);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.success {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.successIcon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--success-bg);
+  color: var(--success);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 1.25rem;
+}
+
+.successTitle {
+  margin: 0 0 0.5rem;
+  font-size: var(--text-2xl);
+  color: var(--text-heading);
+}
+
+.successBody {
+  margin: 0 0 1.5rem;
+  color: var(--text-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .close:hover {
+    transform: none;
+  }
+}

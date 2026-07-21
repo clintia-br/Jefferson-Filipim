@@ -1,0 +1,129 @@
+.section {
+  background: var(--surface-page);
+}
+
+/* Dark band the cards climb out of. */
+.band {
+  background: var(--surface-ink);
+  padding: var(--space-16) var(--gutter) 7.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Faint teal wash so the navy band has depth instead of reading as flat ink. */
+.bandGlow {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  width: 70vw;
+  max-width: 900px;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 115, 111, 0.55) 0%, rgba(0, 115, 111, 0) 70%);
+  pointer-events: none;
+}
+
+.bandInner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bandEyebrow {
+  color: var(--mint);
+}
+
+.bandTitle {
+  margin: 0.5rem 0 0;
+  font-size: var(--text-3xl);
+  color: #fff;
+}
+
+.cards {
+  max-width: var(--container);
+  margin: -6rem auto 0;
+  padding: 0 var(--gutter) var(--section-y);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+.card {
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 100%;
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 56px rgba(26, 40, 59, 0.18);
+}
+
+.cardIcon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  border-radius: var(--radius-md);
+  background: var(--brand-primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.card:hover .cardIcon {
+  transform: scale(1.06) rotate(-3deg);
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--text-heading);
+  line-height: 1.25;
+}
+
+.cardDesc {
+  margin: 0;
+  font-size: var(--text-base);
+  color: var(--text-body);
+  line-height: var(--leading-normal);
+  flex: 1 1 auto;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardIcon {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card:hover .cardIcon {
+    transform: none;
+  }
+}

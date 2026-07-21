@@ -1,0 +1,158 @@
+/* Jefferson Filipim — Design tokens
+   Two identity layers:
+   • BLUE  = the marketing/action layer (buttons, icons, CTA bands) — dominant on the site
+   • TEAL  = the logo/identity layer (the JF mark, "Fisioterapia com Propósito") — elegant, premium
+   Colors sampled directly from the brand site + logo files. */
+
+:root {
+  /* ---- Base neutrals (cool, navy-tinted) ---- */
+  --white: #ffffff;
+  --gray-50: #f5f8f9;
+  --gray-100: #e9eef1;
+  --gray-200: #d5dee0; /* "Sobre mim" section surface */
+  --gray-300: #bcc8cd;
+  --gray-400: #93a2a9;
+  --gray-500: #6b7a83;
+  --gray-600: #4a5761;
+  --gray-700: #2f3b47;
+  --gray-900: #1a283b; /* heading ink */
+  --black: #0a0e12;
+
+  /* ---- Blue (primary / action) ---- */
+  --blue-300: #6fa8f0;
+  --blue-400: #3b8bec;
+  --blue-500: #0f73e5; /* primary button / brand blue */
+  --blue-600: #0b5cc0;
+  --blue-700: #0c3c60; /* deep navy-blue (dark buttons) */
+  --azure: #007dfb; /* bright icon stroke */
+  --steel: #3179af; /* CTA band background */
+
+  /* ---- Teal (identity / logo) ---- */
+  --teal-700: #005b58;
+  --teal-500: #00736f; /* JF logo ink */
+  --teal-300: #5d9098; /* hero mid stop */
+  --mint: #abe2ce; /* hero light stop */
+
+  /* ---- Hero / brand gradients ---- */
+  --grad-hero: linear-gradient(105deg, #114163 0%, #2f6f7e 42%, #5d9098 68%, #abe2ce 100%);
+  --grad-brand: linear-gradient(120deg, #00736f 0%, #5d9098 100%);
+
+  /* ---- Semantic (health context) ---- */
+  --success: #1f9d6b;
+  --success-bg: #e4f5ee;
+  --warning: #d9922b;
+  --warning-bg: #fbf1de;
+  --danger: #d64550;
+  --danger-bg: #fbe7e8;
+
+  /* ============ Semantic aliases ============ */
+  /* Surfaces */
+  --surface-page: var(--white);
+  --surface-muted: var(--gray-50);
+  --surface-cool: var(--gray-200); /* light gray section */
+  --surface-card: var(--white);
+  --surface-cta: var(--steel); /* mid-blue conversion band */
+  --surface-ink: var(--gray-900); /* dark section / footer accent */
+  --surface-black: var(--black); /* footer strip */
+
+  /* Text */
+  --text-heading: var(--gray-900);
+  --text-body: var(--gray-600);
+  --text-muted: var(--gray-500);
+  --text-inverse: var(--white);
+  --text-on-teal: var(--white);
+  --text-link: var(--blue-500);
+  --text-link-hover: var(--blue-600);
+
+  /* Brand roles */
+  --brand-primary: var(--blue-500);
+  --brand-accent: var(--azure);
+  --brand-identity: var(--teal-500);
+
+  /* Lines & rings */
+  --border: var(--gray-200);
+  --border-strong: var(--gray-300);
+  --focus-ring: rgba(15, 115, 229, 0.4);
+
+  /* ============ Typography ============
+     Display/marketing = Poppins (rounded geometric sans, bold & confident).
+     Serif/identity    = Cinzel (elegant Trajan-style caps — logo wordmark). */
+  --font-display: var(--font-poppins), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: var(--font-poppins), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: var(--font-cinzel), 'Times New Roman', Georgia, serif;
+
+  /* Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Type scale (marketing rhythm — headings run large & tight) */
+  --text-xs: 0.75rem; /* 12 */
+  --text-sm: 0.875rem; /* 14 */
+  --text-base: 1rem; /* 16 */
+  --text-lg: 1.125rem; /* 18 */
+  --text-xl: 1.375rem; /* 22 */
+  --text-2xl: 1.75rem; /* 28 */
+  --text-3xl: 2.25rem; /* 36 */
+  --text-4xl: 3rem; /* 48 */
+  --text-5xl: 3.75rem; /* 60 */
+  --text-6xl: 4.75rem; /* 76 — hero */
+
+  /* Line heights */
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.08em;
+  --tracking-caps: 0.22em; /* Cinzel wordmark / eyebrow labels */
+
+  /* ============ Spacing & layout (4px base grid) ============ */
+  --space-0: 0;
+  --space-1: 0.25rem; /* 4  */
+  --space-2: 0.5rem; /* 8  */
+  --space-3: 0.75rem; /* 12 */
+  --space-4: 1rem; /* 16 */
+  --space-5: 1.5rem; /* 24 */
+  --space-6: 2rem; /* 32 */
+  --space-8: 3rem; /* 48 */
+  --space-10: 4rem; /* 64 */
+  --space-12: 5rem; /* 80 */
+  --space-16: 7.5rem; /* 120 — section padding */
+
+  --container: 1180px; /* max content width */
+  --container-wide: 1360px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --section-y: clamp(4rem, 9vw, 7.5rem);
+
+  /* ============ Radii, shadows, motion ============ */
+  --radius-sm: 6px;
+  --radius-md: 10px; /* buttons, inputs */
+  --radius-lg: 16px;
+  --radius-xl: 22px; /* cards */
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+  --radius-full: 50%;
+
+  /* Shadows — low, cool, diffuse (no hard drop shadows) */
+  --shadow-xs: 0 1px 2px rgba(26, 40, 59, 0.06);
+  --shadow-sm: 0 2px 8px rgba(26, 40, 59, 0.07);
+  --shadow-md: 0 8px 24px rgba(26, 40, 59, 0.1);
+  --shadow-lg: 0 18px 44px rgba(26, 40, 59, 0.14);
+  --shadow-blue: 0 12px 28px rgba(15, 115, 229, 0.3);
+
+  --ring: 0 0 0 3px var(--focus-ring);
+
+  /* Motion — calm, no bounce */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 140ms;
+  --dur: 220ms;
+  --dur-slow: 380ms;
+}

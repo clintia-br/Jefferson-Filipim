@@ -1,0 +1,77 @@
+.section {
+  background: var(--surface-page);
+  padding: var(--section-y) var(--gutter);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.head {
+  margin-bottom: var(--space-8);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  overflow: hidden;
+  transition:
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.item[data-open='true'] {
+  border-color: var(--blue-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.35rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  color: var(--text-heading);
+  transition: color var(--dur) var(--ease);
+}
+
+.trigger:hover {
+  color: var(--brand-primary);
+}
+
+.chevron {
+  color: var(--brand-primary);
+  flex: 0 0 auto;
+  display: inline-flex;
+}
+
+/* Height is driven by GSAP; the wrapper only needs to clip. */
+.panel {
+  overflow: hidden;
+  height: 0;
+}
+
+.answer {
+  margin: 0;
+  padding: 0 1.35rem 1.2rem;
+  color: var(--text-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
