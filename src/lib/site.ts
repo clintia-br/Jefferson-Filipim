@@ -4,7 +4,7 @@
  */
 
 /** WhatsApp number in international format, digits only. */
-export const WHATSAPP_NUMBER = '5511000000000'
+export const WHATSAPP_NUMBER = '5511917278795'
 
 export const SITE = {
   brand: 'Jefferson Filipim',
