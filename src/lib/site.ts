@@ -6,6 +6,13 @@
 /** WhatsApp number in international format, digits only. */
 export const WHATSAPP_NUMBER = '5511917278795'
 
+/**
+ * Google Tag Manager container ID (format: GTM-XXXXXXX).
+ * Leave empty to disable tracking — nothing loads and no request reaches
+ * Google until a real ID is set here.
+ */
+export const GTM_ID = ''
+
 export const SITE = {
   brand: 'Jefferson Filipim',
   tagline: 'Fisioterapia com Propósito',
