@@ -2,8 +2,7 @@ export {}
 
 declare global {
   interface Window {
+    /** Populado pelo container do GTM carregado no layout (ver GTM_ID em @/lib/site). */
     dataLayer?: unknown[]
-    /** gtag.js — carregado pela Google tag no layout (ver GADS_ID em @/lib/site). */
-    gtag?: (...args: unknown[]) => void
   }
 }
