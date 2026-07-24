@@ -5,7 +5,7 @@ import { useGSAP } from '@gsap/react'
 import { Check, X } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { Input, Textarea } from '@/components/ui/Input'
-import { SITE, WHATSAPP_NUMBER } from '@/lib/site'
+import { SITE, WHATSAPP_NUMBER, GADS_CONVERSIONS } from '@/lib/site'
 import { gsap, reduceMotion } from '@/lib/motion'
 import styles from './BookingModal.module.css'
 
@@ -101,6 +101,11 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
       '_blank',
       'noopener,noreferrer',
     )
+
+    // Google Ads — conversão de lead. O envio deste formulário é o próprio
+    // handoff para o WhatsApp, então este é o único evento de conversão.
+    window.gtag?.('event', 'conversion', { send_to: GADS_CONVERSIONS.leadForm })
+
     setSent(true)
   }
 
