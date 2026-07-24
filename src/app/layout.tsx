@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Poppins, Cinzel } from 'next/font/google'
 import Script from 'next/script'
 import MotionProvider from '@/components/MotionProvider'
-import { SITE, GTM_ID, GADS_ID } from '@/lib/site'
+import { SITE, GTM_ID } from '@/lib/site'
 import './globals.css'
 
 /* Display/marketing type. Self-hosted by next/font — no request leaves the origin. */
@@ -59,21 +59,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${GTM_ID}');`}
         </Script>
-      )}
-      {GADS_ID && (
-        <>
-          {/* Google tag (gtag.js) — Google Ads */}
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GADS_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="gtag-init" strategy="afterInteractive">
-            {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GADS_ID}');`}
-          </Script>
-        </>
       )}
       <body>
         {GTM_ID && (
