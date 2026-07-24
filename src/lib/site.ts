@@ -13,6 +13,24 @@ export const WHATSAPP_NUMBER = '5511917278795'
  */
 export const GTM_ID = ''
 
+/**
+ * Google Ads — ID de conversão da conta (Google tag, format: AW-XXXXXXXXXX).
+ * Conta: Jefferson Filipim Fisio (335-767-5709).
+ * Deixe vazio para desativar — nada é carregado até um ID real ser definido.
+ */
+export const GADS_ID = 'AW-16596259041'
+
+/**
+ * Rótulos das ações de conversão (Google Ads → Metas → Ações de conversão),
+ * no formato aceito pelo `send_to` do gtag: "AW-XXXXXXXXXX/RÓTULO".
+ */
+export const GADS_CONVERSIONS = {
+  /** "Formulário - Lead (site)" — disparada no envio do formulário de agendamento. */
+  leadForm: 'AW-16596259041/8v_DCM7ZytUcEOGh2-k9',
+  /** "WhatsApp - Contato (site)" — reservada para um botão de WhatsApp dedicado (hoje não usada). */
+  whatsappContact: 'AW-16596259041/SY7mCNHZytUcEOGh2-k9',
+} as const
+
 export const SITE = {
   brand: 'Jefferson Filipim',
   tagline: 'Fisioterapia com Propósito',
