@@ -96,6 +96,14 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
       .filter(Boolean)
       .join('\n')
 
+    // Registro do lead na planilha (via AppSheet) — melhor esforço, nunca
+    // deve atrasar ou bloquear o handoff pro WhatsApp abaixo.
+    fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome: name, whatsapp: phone, caso: notes }),
+    }).catch(() => {})
+
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
       '_blank',
